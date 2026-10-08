@@ -1,0 +1,2655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bankaool Seguros | El Seguro Inteligente con IA y Respaldo Bancario</title>
+  
+  <!-- Premium Fonts: Outfit, Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /* Paleta original Stitch / Bankaool: Fondo claro limpio & acentos vibrantes */
+      --bg-base: #FFFFFF;
+      --bg-subtle: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-dark-card: #070B14;
+      --bg-dark-inner: #0B132B;
+      
+      --text-main: #0B132B;
+      --text-muted: #64748B;
+      --text-light: #94A3B8;
+      
+      --primary-orange: #FF4713;
+      --primary-orange-hover: #E03A0B;
+      --primary-orange-light: #FFF1ED;
+      
+      --cyber-emerald: #00E676;
+      --kinetic-cyan: #00E5FF;
+      --tech-blue: #2563EB;
+      
+      --border-subtle: rgba(226, 232, 240, 0.85);
+      --border-medium: #CBD5E1;
+      
+      /* Modern Glowmorphism & Elevations */
+      --shadow-sm: 0 2px 8px rgba(11, 19, 43, 0.04);
+      --shadow-md: 0 10px 30px rgba(11, 19, 43, 0.06), 0 2px 6px rgba(11, 19, 43, 0.02);
+      --shadow-lg: 0 20px 50px rgba(11, 19, 43, 0.08), 0 4px 12px rgba(11, 19, 43, 0.03);
+      --shadow-orange: 0 6px 20px rgba(255, 71, 19, 0.35);
+      
+      /* Typography */
+      --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      /* Radii */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 26px;
+      --radius-full: 9999px;
+      
+      /* Smooth transitions */
+      --transition-smooth: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-base);
+      background-image: 
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255, 71, 19, 0.04), transparent 70%),
+        radial-gradient(ellipse 50% 30% at 90% 15%, rgba(0, 230, 118, 0.03), transparent 60%);
+      color: var(--text-main);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Modern Styled Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-subtle);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-orange);
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background-color: var(--bg-dark-card);
+      color: #94A3B8;
+      font-size: 12px;
+      padding: 8px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .top-bar-left, .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background-color: var(--cyber-emerald);
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 8px var(--cyber-emerald);
+      animation: pulse-dot 2s infinite ease-in-out;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    .top-bar a {
+      color: #94A3B8;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+    .top-bar a:hover {
+      color: #FFFFFF;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px) saturate(180%);
+      padding: 16px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(11, 19, 43, 0.03);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 27px;
+      font-weight: 800;
+      color: #0B132B;
+      letter-spacing: -0.04em;
+    }
+    .logo-badge {
+      border: 1px solid var(--primary-orange);
+      background: var(--primary-orange-light);
+      color: var(--primary-orange);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.05em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      font-size: 14px;
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-links a:hover {
+      color: var(--primary-orange);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .btn-outline-banca {
+      border: 1.5px solid #CBD5E1;
+      padding: 9px 18px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #0F172A;
+      background: #FFFFFF;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+    .btn-outline-banca:hover {
+      border-color: #0F172A;
+      background: #F8FAFC;
+      transform: translateY(-1px);
+    }
+    .btn-primary-orange {
+      background: var(--primary-orange);
+      color: #FFFFFF;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+      box-shadow: var(--shadow-orange);
+    }
+    .btn-primary-orange:hover {
+      background: var(--primary-orange-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 71, 19, 0.45);
+    }
+
+    /* Sub-header Live Telemetry Bar */
+    .telemetry-strip {
+      padding: 12px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      background: #FAFCFE;
+      border-bottom: 1px solid #EEF2F6;
+    }
+    .telemetry-badge {
+      background: rgba(0, 230, 118, 0.08);
+      border: 1px solid rgba(0, 230, 118, 0.35);
+      color: #008744;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .telemetry-code {
+      font-family: var(--font-mono);
+      color: #475569;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .regulation-badges {
+      display: flex;
+      gap: 18px;
+      color: #64748B;
+      font-size: 12.5px;
+      align-items: center;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 70px 0 80px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .pill-insurtech {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-orange-light);
+      border: 1px solid rgba(255, 71, 19, 0.25);
+      color: var(--primary-orange);
+      font-weight: 700;
+      font-size: 11.5px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.06em;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: #0B132B;
+      margin-bottom: 22px;
+    }
+    .hero-title .highlight-orange {
+      color: var(--primary-orange);
+    }
+    .hero-title .highlight-blue {
+      color: #2F6BF4;
+    }
+    .hero-desc {
+      font-size: 17.5px;
+      line-height: 1.6;
+      color: #475569;
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+    .hero-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .metric-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-smooth);
+    }
+    .metric-box:hover {
+      border-color: #CBD5E1;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .metric-val.orange { color: var(--primary-orange); }
+    .metric-val.blue { color: #0284C7; }
+    .metric-val.dark { color: #0F172A; }
+    .metric-label {
+      font-size: 12px;
+      color: #64748B;
+      font-weight: 500;
+    }
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .btn-hero-main {
+      background: var(--primary-orange);
+      color: white;
+      font-weight: 700;
+      font-size: 15.5px;
+      padding: 16px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-orange);
+      transition: var(--transition-smooth);
+    }
+    .btn-hero-main:hover {
+      background: var(--primary-orange-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(255, 71, 19, 0.45);
+    }
+    .btn-hero-sec {
+      background: #FFFFFF;
+      color: #0F172A;
+      font-weight: 600;
+      font-size: 15.5px;
+      padding: 16px 28px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-medium);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition-smooth);
+    }
+    .btn-hero-sec:hover {
+      border-color: #0F172A;
+      background: #F8FAFC;
+      transform: translateY(-2px);
+    }
+    .hero-subtext {
+      font-size: 13px;
+      color: #64748B;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Radar Telemetry Card (Dark Cyber Contrast Widget) */
+    .radar-card {
+      background: var(--bg-dark-card);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 32px 80px rgba(7, 11, 20, 0.35), 0 0 40px rgba(0, 230, 118, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .radar-card::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(0, 230, 118, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .radar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .radar-tag {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: #F97316;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+    .radar-gps {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--kinetic-cyan);
+      background: rgba(0, 229, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 229, 255, 0.2);
+    }
+    .radar-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      background: #111B2C;
+      padding: 5px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .radar-tab-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .radar-tab-btn.active {
+      background: var(--primary-orange);
+      color: white;
+      box-shadow: 0 2px 8px rgba(255, 71, 19, 0.4);
+    }
+    .radar-asset-box {
+      background: rgba(17, 27, 44, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+    }
+    .sensor-status {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #F97316;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .badge-secure {
+      background: rgba(0, 230, 118, 0.15);
+      color: var(--cyber-emerald);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+    .asset-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+    .radar-subgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .radar-metric-card {
+      background: #0A1120;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .rm-label {
+      font-size: 11px;
+      color: #94A3B8;
+      margin-bottom: 6px;
+    }
+    .rm-val {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .rm-val.cyan { color: var(--kinetic-cyan); }
+    .rm-val.orange { color: #FF6B4A; }
+    .rm-sub {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--cyber-emerald);
+      margin-top: 4px;
+    }
+    .radar-footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+    .boveda-funds {
+      color: #94A3B8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .spei-live {
+      color: var(--kinetic-cyan);
+      font-weight: 700;
+    }
+    .simulate-link {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 12px;
+      color: #94A3B8;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+    .simulate-link:hover { color: var(--primary-orange); }
+
+    /* Cotizador Inteligente Section */
+    .calculator-section {
+      padding: 85px 0;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .section-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 50px;
+    }
+    .section-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-orange-light);
+      border: 1px solid rgba(255, 71, 19, 0.25);
+      color: var(--primary-orange);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 11px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 800;
+      color: #0B132B;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .section-desc {
+      font-size: 16.5px;
+      color: #64748B;
+      line-height: 1.6;
+    }
+
+    /* Calculator Main Container */
+    .calc-matrix {
+      background: #FFFFFF;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-lg);
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 48px;
+    }
+    .calc-step-title {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #64748B;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .calc-step-val {
+      color: var(--primary-orange);
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .policy-type-selector {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 34px;
+    }
+    .type-card {
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      background: #FFFFFF;
+    }
+    .type-card:hover {
+      border-color: #CBD5E1;
+      transform: translateY(-2px);
+    }
+    .type-card.active {
+      border-color: var(--primary-orange);
+      background: #FFF8F6;
+      box-shadow: 0 4px 16px rgba(255, 71, 19, 0.12);
+    }
+    .type-card svg {
+      width: 26px;
+      height: 26px;
+      margin-bottom: 8px;
+      stroke: #64748B;
+    }
+    .type-card.active svg {
+      stroke: var(--primary-orange);
+    }
+    .type-card-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F172A;
+    }
+    .type-card.active .type-card-name {
+      color: var(--primary-orange);
+    }
+
+    /* Range Sliders */
+    .slider-group {
+      margin-bottom: 34px;
+    }
+    .range-input {
+      width: 100%;
+      -webkit-appearance: none;
+      height: 6px;
+      border-radius: 4px;
+      background: #E2E8F0;
+      outline: none;
+      margin: 14px 0 8px;
+      transition: background 0.2s;
+    }
+    .range-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary-orange);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(255, 71, 19, 0.4);
+      border: 3px solid #FFFFFF;
+      transition: transform 0.1s;
+    }
+    .range-input::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+    .slider-scale-labels {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #94A3B8;
+    }
+
+    /* Bonus Card Toggle */
+    .bank-bonus-card {
+      background: #F8FAFC;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .bonus-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .bonus-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-orange-light);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-orange);
+    }
+    .bonus-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0F172A;
+    }
+    .bonus-desc {
+      font-size: 12px;
+      color: var(--primary-orange);
+      font-weight: 600;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 26px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider-round {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #CBD5E1;
+      transition: .3s;
+      border-radius: 34px;
+    }
+    .slider-round:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    input:checked + .slider-round {
+      background-color: var(--primary-orange);
+    }
+    input:checked + .slider-round:before {
+      transform: translateX(22px);
+    }
+
+    /* Live Quote Box */
+    .calc-quote-box {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .quote-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .quote-badge-ia {
+      background: rgba(0, 230, 118, 0.1);
+      border: 1px solid rgba(0, 230, 118, 0.35);
+      color: #008744;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .quote-title {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: #64748B;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .price-display {
+      margin-bottom: 8px;
+    }
+    .price-number {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--primary-orange);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .price-unit {
+      font-size: 16px;
+      color: #0F172A;
+      font-weight: 700;
+    }
+    .cashback-chip {
+      background: var(--primary-orange-light);
+      border: 1px solid rgba(255, 71, 19, 0.25);
+      color: var(--primary-orange);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+    .features-list {
+      list-style: none;
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .features-list li {
+      font-size: 13.5px;
+      color: #334155;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.4;
+    }
+    .check-icon {
+      color: var(--cyber-emerald);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .btn-emitir {
+      background: var(--primary-orange);
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 15.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: var(--shadow-orange);
+      transition: var(--transition-smooth);
+    }
+    .btn-emitir:hover {
+      background: var(--primary-orange-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 71, 19, 0.45);
+    }
+    .legal-micro-calc {
+      text-align: center;
+      font-size: 11.5px;
+      color: #94A3B8;
+      margin-top: 12px;
+    }
+
+    /* Coberturas Estrella */
+    .coberturas-section {
+      padding: 90px 0;
+      background: #FFFFFF;
+    }
+    .coberturas-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+    }
+    .coberturas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .cobertura-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .cobertura-card:hover {
+      border-color: #CBD5E1;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .cob-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .cob-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cob-icon-box.orange { background: #FFF3EB; color: var(--primary-orange); }
+    .cob-icon-box.blue { background: #EFF6FF; color: var(--tech-blue); }
+    .cob-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .cob-badge.orange { background: #FFF3EB; color: var(--primary-orange); }
+    .cob-badge.blue { background: #EFF6FF; color: var(--tech-blue); }
+    .cob-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .cob-desc {
+      font-size: 14.5px;
+      color: #475569;
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+    .cob-media {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 24px;
+      position: relative;
+      background: #0B132B;
+    }
+    .cob-media img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .cobertura-card:hover .cob-media img {
+      transform: scale(1.03);
+    }
+    .cob-graph-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      height: 210px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .cgb-top {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #64748B;
+    }
+    .cgb-gain {
+      color: var(--primary-orange);
+      font-weight: 700;
+    }
+    .cgb-svg {
+      width: 100%;
+      height: 90px;
+    }
+    .cgb-years {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #94A3B8;
+    }
+    .cob-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid #F1F5F9;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #64748B;
+    }
+    .cob-btn-link {
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--primary-orange);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-fast);
+    }
+    .cob-btn-link:hover {
+      gap: 9px;
+    }
+
+    /* Comparativa Table */
+    .compare-section {
+      padding: 90px 0;
+      background: #F8FAFC;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .compare-table-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-top: 40px;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .compare-table th {
+      padding: 20px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0F172A;
+      background: #F8FAFC;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .compare-table th.col-bankaool {
+      background: #FFF7F5;
+      color: var(--primary-orange);
+      border-bottom: 2px solid var(--primary-orange);
+    }
+    .compare-table td {
+      padding: 20px 24px;
+      font-size: 14px;
+      border-bottom: 1px solid #F1F5F9;
+      vertical-align: middle;
+    }
+    .td-dim {
+      font-weight: 600;
+      color: #1E293B;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .td-bankaool {
+      background: #FFFAF9;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: #C23308;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .td-trad {
+      color: #64748B;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge-icon-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #FFEBE5;
+      color: var(--primary-orange);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .badge-icon-cross {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #FEE2E2;
+      color: #EF4444;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* Metricas Clave y Testimonios */
+    .proof-section {
+      padding: 90px 0;
+      background: #FFFFFF;
+    }
+    .proof-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .proof-metric-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+    .pm-tag {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+    .pm-val {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+    .pm-val.orange { color: var(--primary-orange); }
+    .pm-val.blue { color: #0284C7; }
+    .pm-val.dark { color: #0F172A; display: flex; align-items: center; gap: 10px; }
+    .stars {
+      color: #F59E0B;
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+    .pm-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 6px;
+    }
+    .pm-desc {
+      font-size: 13.5px;
+      color: #64748B;
+      line-height: 1.5;
+    }
+
+    /* Testimonios */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .test-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+    }
+    .test-card:hover {
+      border-color: #CBD5E1;
+      transform: translateY(-2px);
+    }
+    .test-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .test-stars {
+      color: #F59E0B;
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+    .test-location {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #94A3B8;
+    }
+    .test-quote {
+      font-size: 14px;
+      color: #334155;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .test-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #EFF6FF;
+      color: var(--tech-blue);
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .author-avatar.orange { background: #FFF3EB; color: var(--primary-orange); }
+    .author-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0F172A;
+    }
+    .author-policy {
+      font-size: 11.5px;
+      color: #64748B;
+    }
+
+    /* CTA Banner Section */
+    .cta-banner-section {
+      padding: 40px 0 90px;
+    }
+    .cta-banner-card {
+      background: radial-gradient(circle at 10% 20%, #152238 0%, #070B14 100%);
+      border-radius: var(--radius-xl);
+      padding: 56px 64px;
+      color: #FFFFFF;
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 30px 80px rgba(7, 11, 20, 0.4);
+    }
+    .cta-pill {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary-orange);
+      background: rgba(255, 71, 19, 0.12);
+      border: 1px solid rgba(255, 71, 19, 0.3);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+    }
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+    }
+    .cta-title .orange {
+      color: var(--primary-orange);
+    }
+    .cta-desc {
+      font-size: 15.5px;
+      color: #94A3B8;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .cta-trust-items {
+      display: flex;
+      gap: 20px;
+      font-size: 12.5px;
+      font-family: var(--font-mono);
+      color: #CBD5E1;
+    }
+    .cta-trust-items span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Lead Form */
+    .lead-box {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      color: #0F172A;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+    .lead-label {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .phone-input-row {
+      display: flex;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 18px;
+      transition: border-color 0.2s;
+    }
+    .phone-input-row:focus-within {
+      border-color: var(--primary-orange);
+      box-shadow: 0 0 0 3px rgba(255, 71, 19, 0.15);
+    }
+    .phone-prefix {
+      background: #F8FAFC;
+      padding: 14px 16px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #475569;
+      border-right: 1px solid #E2E8F0;
+    }
+    .phone-field {
+      border: none;
+      outline: none;
+      padding: 14px 16px;
+      font-family: var(--font-mono);
+      font-size: 16px;
+      width: 100%;
+      color: #0F172A;
+    }
+    .btn-wa-submit {
+      width: 100%;
+      background: var(--primary-orange);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: var(--shadow-orange);
+      transition: var(--transition-smooth);
+    }
+    .btn-wa-submit:hover {
+      background: var(--primary-orange-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 71, 19, 0.45);
+    }
+    .call-instead {
+      text-align: center;
+      font-size: 12.5px;
+      color: #64748B;
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--bg-dark-card);
+      color: #94A3B8;
+      padding: 70px 0 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    .footer-brand .logo-text {
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .footer-sub {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #64748B;
+      margin-bottom: 20px;
+      max-width: 320px;
+    }
+    .footer-reg-chips {
+      display: flex;
+      gap: 10px;
+    }
+    .reg-chip {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: #111A2C;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 5px 10px;
+      border-radius: 6px;
+      color: #94A3B8;
+    }
+    .footer-col h4 {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-links a {
+      color: #94A3B8;
+      font-size: 13.5px;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+    .footer-links a:hover {
+      color: #FFFFFF;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      color: #64748B;
+    }
+    .node-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      color: #E2E8F0;
+    }
+    .node-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--primary-orange);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--primary-orange);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-grid, .calc-matrix, .coberturas-grid, .cta-banner-card {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-title {
+        font-size: 44px;
+      }
+    }
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 16px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-actions .btn-primary-orange {
+        display: none;
+      }
+      .btn-outline-banca {
+        padding: 7px 12px;
+        font-size: 12px;
+      }
+      .logo-text {
+        font-size: 22px;
+      }
+      .top-bar {
+        display: none;
+      }
+      .telemetry-strip {
+        padding: 10px 16px;
+      }
+      .regulation-badges {
+        display: none;
+      }
+      .container {
+        padding: 0 16px;
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+      .hero-section {
+        padding: 30px 0 40px;
+      }
+      .hero-title {
+        font-size: 32px;
+      }
+      .hero-desc {
+        font-size: 15px;
+      }
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-hero-main, .btn-hero-sec {
+        justify-content: center;
+      }
+      .radar-card {
+        padding: 18px;
+      }
+      .radar-subgrid {
+        grid-template-columns: 1fr;
+      }
+      .calc-matrix {
+        padding: 20px 14px;
+      }
+      .cobertura-card {
+        padding: 20px 14px;
+      }
+      .cta-banner-card {
+        padding: 24px 16px;
+      }
+      .lead-box {
+        padding: 20px 16px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .compare-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar: Telemetry & Regulatory -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <span><span class="status-dot"></span> Sistema Operativo Financiero: 100% En Línea</span>
+      <span>|</span>
+      <span>Regulado por CNBV, CNSF y CONDUSEF</span>
+    </div>
+    <div class="top-bar-right">
+      <a href="#personas">Personas</a>
+      <a href="#empresas">Empresas</a>
+      <a href="#nosotros">Sobre nosotros</a>
+      <a href="#soporte">Soporte 24/7</a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="nav-brand">
+      <span class="logo-text">banka<span style="color:var(--primary-orange);">ool</span></span>
+      <span class="logo-badge">SEGUROS</span>
+    </a>
+    
+    <ul class="nav-links">
+      <li>
+        <a href="#coberturas">
+          Pólizas Inteligentes
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+      </li>
+      <li><a href="#cotizador">Cotizador IA</a></li>
+      <li><a href="#comparativa">Bankaool vs Tradicional</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+      <li>
+        <a href="#quiniela" id="nav-quiniela-btn" onclick="openQuinielaModal(event)" style="color:var(--primary-orange); font-weight:700;">
+          ⚽ Quiniela Mundialista
+        </a>
+      </li>
+      <li><a href="#contacto">Contacto WhatsApp</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="#quiniela" id="btn-participar-quiniela" onclick="openQuinielaModal(event)" class="btn-outline-banca" style="border-color:var(--primary-orange); color:var(--primary-orange);">
+        ⚽ Participar Quiniela
+      </a>
+      <a href="#cotizador" class="btn-primary-orange">
+        Cotizar Cobertura
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Live Telemetry Strip -->
+  <div class="telemetry-strip">
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <span class="telemetry-badge">
+        <span class="status-dot"></span> Red Telemétrica Activa: 99.98%
+      </span>
+      <span class="telemetry-code">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        Dispersión SPEI Directa Bankaool &lt;10 min
+      </span>
+    </div>
+    <div class="regulation-badges">
+      <span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary-orange)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+        CNSF REG: F0892-AUT
+      </span>
+      <span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M4 10l8-6 8 6"/></svg>
+        CONDUSEF Folio: 99120-MX
+      </span>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Hero Text Content -->
+        <div>
+          <div class="pill-insurtech">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+            INSURTECH OFICIAL BANKAOOL
+          </div>
+          <h1 class="hero-title">
+            El Seguro Inteligente con <br>
+            <span class="highlight-orange">Inteligencia Artificial</span> y <br>
+            <span class="highlight-blue">Respaldo Bancario.</span>
+          </h1>
+          <p class="hero-desc">
+            Protección en tiempo real con telemetría satelital, ajustadores autónomos e indemnización instantánea en tu cuenta o app Bankaool en menos de 10 minutos vía dispersión SPEI.
+          </p>
+
+          <div class="hero-metrics-row">
+            <div class="metric-box">
+              <div class="metric-val orange">450k+</div>
+              <div class="metric-label">Asegurados en México</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-val blue">&lt; 10 min</div>
+              <div class="metric-label">Dispersión SPEI</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-val dark">99.4%</div>
+              <div class="metric-label">Aprobación por IA</div>
+            </div>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#cotizador" class="btn-hero-main">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Cotizar en 60 Segundos
+            </a>
+            <a href="#coberturas" class="btn-hero-sec">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+              Explorar Coberturas
+            </a>
+          </div>
+
+          <div class="hero-subtext">
+            <span class="status-dot"></span>
+            Sin comisiones ocultas • Bonificación de 15% pagando con cuenta o app Bankaool
+          </div>
+        </div>
+
+        <!-- Right Radar Telemetry Widget -->
+        <div>
+          <div class="radar-card">
+            <div class="radar-header">
+              <div class="radar-tag">
+                <span class="status-dot"></span>
+                RADAR TELEMÉTRICO BANKAOOL
+              </div>
+              <div class="radar-gps">GPS ACTIVO MX</div>
+            </div>
+
+            <div class="radar-tabs">
+              <button class="radar-tab-btn active" onclick="switchRadarTab(this, 'Tesla Model 3 / Placas 941-BKA', 'OBD-II VIAL: ACTIVO', '4.2 min', '$0')">Auto</button>
+              <button class="radar-tab-btn" onclick="switchRadarTab(this, 'Salud Vital / Titular + Familia', 'MONITOR BIOMÉTRICO: OK', '< 45 seg', '100%')">Salud</button>
+              <button class="radar-tab-btn" onclick="switchRadarTab(this, 'Póliza Retiro + Bóveda 15.2%', 'RENDIMIENTO DIARIO: ACTIVO', 'SPEI Diario', '$0')">Vida</button>
+              <button class="radar-tab-btn" onclick="switchRadarTab(this, 'Residencia Polanco / IoT Smart', 'SENSORES SÍSMICOS: 24/7', '< 3 min', '0%')">Hogar</button>
+            </div>
+
+            <div class="radar-asset-box">
+              <div class="sensor-status">
+                <span id="radar-sensor-label">SENSOR OBD-II VIAL: ACTIVO</span>
+                <span class="badge-secure">99.8% SEGURO</span>
+              </div>
+              <div class="asset-name" id="radar-asset-name">Tesla Model 3 / Placas 941–BKA</div>
+
+              <div class="radar-subgrid">
+                <div class="radar-metric-card">
+                  <div class="rm-label">Ajustador Autónomo Dron</div>
+                  <div class="rm-val cyan" id="radar-val-time">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+                    <span>4.2 min</span>
+                  </div>
+                  <div class="rm-sub">Unidad Bankaool en ruta</div>
+                </div>
+
+                <div class="radar-metric-card">
+                  <div class="rm-label">Liquidación Instantánea</div>
+                  <div class="rm-val orange" id="radar-val-ded">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    <span>$0 Deducible</span>
+                  </div>
+                  <div class="rm-sub" style="color:#94A3B8;">Score 98/100 Aplicado</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="radar-footer-bar">
+              <div class="boveda-funds">
+                <span class="status-dot"></span> Bóveda Bankaool: Fondos Disponibles
+              </div>
+              <div class="spei-live">SPEI 24/7 ACTIVO</div>
+            </div>
+
+            <a href="#cotizador" class="simulate-link">
+              Activación sin papeleo vía App Bankaool &nbsp; <strong>Simular póliza &rarr;</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Cotizador Section -->
+  <section class="calculator-section" id="cotizador">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          ALGORITMO PARAMÉTRICO 2025
+        </div>
+        <h2 class="section-title">Cotizador Inteligente con Inteligencia Predictiva</h2>
+        <p class="section-desc">
+          Selecciona tu activo y modula la cobertura. El motor neuronal calcula la prima exacta con bonificación directa en pesos mexicanos en tu cuenta Bankaool.
+        </p>
+      </div>
+
+      <div class="calc-matrix">
+        <!-- Controls Column -->
+        <div>
+          <div class="calc-step-title">
+            <span>1. Tipo de Póliza</span>
+          </div>
+          <div class="policy-type-selector">
+            <div class="type-card active" onclick="selectPolicyType(this, 'auto', 500000, 420)">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C2.1 11 2 11.5 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+              <div class="type-card-name">Auto Tech</div>
+            </div>
+            <div class="type-card" onclick="selectPolicyType(this, 'salud', 1000000, 680)">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              <div class="type-card-name">Salud Bio</div>
+            </div>
+            <div class="type-card" onclick="selectPolicyType(this, 'vida', 1500000, 390)">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+              <div class="type-card-name">Vida Tech</div>
+            </div>
+            <div class="type-card" onclick="selectPolicyType(this, 'hogar', 2000000, 490)">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <div class="type-card-name">Hogar IoT</div>
+            </div>
+          </div>
+
+          <!-- Slider 1 -->
+          <div class="slider-group">
+            <div class="calc-step-title">
+              <span>2. Suma Asegurada Total</span>
+              <span class="calc-step-val" id="sum-display">$500,000 MXN</span>
+            </div>
+            <input type="range" class="range-input" id="range-suma" min="100000" max="2000000" step="50000" value="500000" oninput="updateCalculator()">
+            <div class="slider-scale-labels">
+              <span>$100,000 MXN</span>
+              <span>$750,000 MXN</span>
+              <span>$2,000,000 MXN</span>
+            </div>
+          </div>
+
+          <!-- Slider 2 -->
+          <div class="slider-group">
+            <div class="calc-step-title">
+              <span>3. Deducible Telemétrico Condicionado</span>
+              <span class="calc-step-val" style="color:#0284C7;" id="deducible-display">3% (Con Sensor Activo)</span>
+            </div>
+            <input type="range" class="range-input" id="range-deducible" min="0" max="10" step="1" value="3" oninput="updateCalculator()">
+            <div class="slider-scale-labels">
+              <span>0% (Cero Deducible VIP)</span>
+              <span>5% (Estándar)</span>
+              <span>10% (Prima Mínima)</span>
+            </div>
+          </div>
+
+          <!-- Bankaool Bonus Toggle -->
+          <div class="bank-bonus-card">
+            <div class="bonus-info">
+              <div class="bonus-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+              </div>
+              <div>
+                <div class="bonus-title">Pago con Tarjeta o App Bankaool</div>
+                <div class="bonus-desc">15% de bonificación automática en tu cuenta</div>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="bankaool-discount" checked onchange="updateCalculator()">
+              <span class="slider-round"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Live Quote Card -->
+        <div class="calc-quote-box">
+          <div>
+            <div class="quote-header">
+              <span class="quote-title">RESUMEN ESTIMADO EN VIVO</span>
+              <span class="quote-badge-ia">
+                <span class="status-dot"></span> Cotización con IA
+              </span>
+            </div>
+
+            <div class="price-display">
+              <span style="font-size: 13px; color: #64748B; font-weight: 600; display: block; margin-bottom: 6px;">Prima mensual sugerida</span>
+              <span class="price-number" id="monthly-price">$420</span>
+              <span class="price-unit">MXN / mes</span>
+            </div>
+
+            <div class="cashback-chip" id="cashback-label">
+              Incluye -$74 MXN de Cashback Bankaool
+            </div>
+
+            <ul class="features-list">
+              <li>
+                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Ajustador en moto/dron en menos de 10 min</span>
+              </li>
+              <li>
+                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Dispersión bancaria directa en CLABE Bankaool</span>
+              </li>
+              <li>
+                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Cancelación flexible con un tap en app sin penalizaciones</span>
+              </li>
+              <li>
+                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Asistencia vial y médica satelital 24/7 en toda la República</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button class="btn-emitir" style="width: 100%;" onclick="alert('Iniciando emisión biométrica en App Bankaool...')">
+              Emitir Póliza en 60 Segundos
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </button>
+            <div class="legal-micro-calc">
+              Sin firmas en papel • Validación biométrica INE y App Bankaool
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coberturas Estrella Section -->
+  <section class="coberturas-section" id="coberturas">
+    <div class="container">
+      <div class="coberturas-header-row">
+        <div>
+          <div class="section-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            LÍNEA PARAMÉTRICA 2025
+          </div>
+          <h2 class="section-title" style="margin-bottom: 8px;">Coberturas Estrella de Próxima Generación</h2>
+          <p class="section-desc">Diseñadas con arquitectura de sensores IoT, telemetría y algoritmos de autogestión para personas y empresas en México.</p>
+        </div>
+        <div style="background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.35); color: #008744; padding: 8px 18px; border-radius: var(--radius-full); font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+          Cobertura regulada ante la CNSF y CONDUSEF
+        </div>
+      </div>
+
+      <div class="coberturas-grid">
+        <!-- Card 1: Auto -->
+        <div class="cobertura-card">
+          <div>
+            <div class="cob-top">
+              <div class="cob-icon-box orange">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C2.1 11 2 11.5 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+              </div>
+              <span class="cob-badge orange">TELEMETRÍA OBD-II</span>
+            </div>
+            <h3 class="cob-title">Auto Telemetría & Drones</h3>
+            <p class="cob-desc">
+              Monitoreo predictivo de conducción, ajuste con dron en colisiones metropolitanas y <strong>cero deducible</strong> garantizado si el sensor registra manejo responsable.
+            </p>
+            <div class="cob-media">
+              <img src="assets/card-auto.png" alt="Auto Telemetría y Drones Bankaool">
+            </div>
+          </div>
+          <div class="cob-footer">
+            <span>Ajuste vial promedio: <strong>4.2 min</strong></span>
+            <a href="#cotizador" class="cob-btn-link">Configurar &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 2: Salud -->
+        <div class="cobertura-card">
+          <div>
+            <div class="cob-top">
+              <div class="cob-icon-box blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              </div>
+              <span class="cob-badge blue">BIOMETRÍA 24/7</span>
+            </div>
+            <h3 class="cob-title">Salud Digital & Genómica</h3>
+            <p class="cob-desc">
+              Consultas holográficas y videollamadas médicas en segundos, entrega express de medicamentos y reembolso biométrico inmediato en tu saldo Bankaool sin facturas físicas.
+            </p>
+            <div class="cob-media">
+              <img src="assets/card-salud.png" alt="Salud Digital y Genómica Bankaool">
+            </div>
+          </div>
+          <div class="cob-footer">
+            <span>Teleconsulta médica: <strong>&lt; 45 seg</strong></span>
+            <a href="#cotizador" class="cob-btn-link">Configurar &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 3: Vida & Inversión -->
+        <div class="cobertura-card">
+          <div>
+            <div class="cob-top">
+              <div class="cob-icon-box orange">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+              </div>
+              <span class="cob-badge orange">RENDIMIENTO BÓVEDA</span>
+            </div>
+            <h3 class="cob-title">Vida & Rendimiento de Inversión</h3>
+            <p class="cob-desc">
+              Protección para tus beneficiarios combinada con rendimientos diarios directos en Bóveda Bankaool hasta <strong>15% anualizado</strong> sobre el fondo de ahorro de tu póliza.
+            </p>
+            <div class="cob-graph-box">
+              <div class="cgb-top">
+                <span>Rendimiento Bóveda Bankaool</span>
+                <span class="cgb-gain">+15.2% Anualizado</span>
+              </div>
+              <svg class="cgb-svg" viewBox="0 0 400 100" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="gradientGain" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FF4713" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#FF4713" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M 0,80 Q 120,70 200,45 T 400,10 L 400,100 L 0,100 Z" fill="url(#gradientGain)"/>
+                <path d="M 0,80 Q 120,70 200,45 T 400,10" fill="none" stroke="#FF4713" stroke-width="3"/>
+                <circle cx="400" cy="10" r="4" fill="#FF4713"/>
+              </svg>
+              <div class="cgb-years">
+                <span>Año 1: $100k</span>
+                <span>Año 3: $148k</span>
+                <span>Año 5: $215k MXN</span>
+              </div>
+            </div>
+          </div>
+          <div class="cob-footer">
+            <span>Liquidez diaria en cuenta Bankaool</span>
+            <a href="#cotizador" class="cob-btn-link">Configurar &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 4: Ciberseguridad & Hogar IoT -->
+        <div class="cobertura-card">
+          <div>
+            <div class="cob-top">
+              <div class="cob-icon-box blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><rect width="8" height="6" x="8" y="11" rx="1"/></svg>
+              </div>
+              <span class="cob-badge blue">ESCUDO DIGITAL & IOT</span>
+            </div>
+            <h3 class="cob-title">Ciberseguridad & Hogar IoT</h3>
+            <p class="cob-desc">
+              Blindaje contra suplantación de identidad digital, fraudes en banca en línea o transferencias, y cobertura de daños residenciales con sensores inteligentes ante fugas e incendios.
+            </p>
+            <div class="cob-media">
+              <img src="assets/card-cyber.png" alt="Ciberseguridad y Hogar IoT Bankaool">
+            </div>
+          </div>
+          <div class="cob-footer">
+            <span>Monitoreo continuo de identidad</span>
+            <a href="#cotizador" class="cob-btn-link">Configurar &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparativa Table Section -->
+  <section class="compare-section" id="comparativa">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pill">
+          PARADIGMA TECNOLÓGICO DISRUPTIVO
+        </div>
+        <h2 class="section-title">Bankaool Seguros vs. Aseguradoras Tradicionales</h2>
+        <p class="section-desc">Dejamos atrás las llamadas en espera de 45 minutos y los ajustadores que tardan medio día en llegar.</p>
+      </div>
+
+      <div class="compare-table-card">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th style="width: 30%;">Dimensión Operativa</th>
+              <th class="col-bankaool" style="width: 40%;">
+                <span class="status-dot"></span> Bankaool Seguros (Fintech IA)
+              </th>
+              <th style="width: 30%;">Aseguradoras Tradicionales</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-dim">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Resolución de Siniestro
+              </td>
+              <td class="td-bankaool">
+                <span class="badge-icon-check">✓</span>
+                Menos de 10 minutos (Autónomo por IA)
+              </td>
+              <td class="td-trad">
+                <span class="badge-icon-cross">✕</span>
+                15 a 45 días hábiles promedio
+              </td>
+            </tr>
+            <tr>
+              <td class="td-dim">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Papeleo y Trámites
+              </td>
+              <td class="td-bankaool">
+                <span class="badge-icon-check">✓</span>
+                100% Digital con INE / Face ID
+              </td>
+              <td class="td-trad">
+                <span class="badge-icon-cross">✕</span>
+                Formularios físicos impresos & copias
+              </td>
+            </tr>
+            <tr>
+              <td class="td-dim">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg>
+                Llegada del Ajustador
+              </td>
+              <td class="td-bankaool">
+                <span class="badge-icon-check">✓</span>
+                Moto/Dron en 4.2 min o videoperitaje en 60s
+              </td>
+              <td class="td-trad">
+                <span class="badge-icon-cross">✕</span>
+                Esperas en la calle de 2 a 4 horas
+              </td>
+            </tr>
+            <tr>
+              <td class="td-dim">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                Integración Bancaria
+              </td>
+              <td class="td-bankaool">
+                <span class="badge-icon-check">✓</span>
+                Dispersión directa SPEI a tu cuenta Bankaool
+              </td>
+              <td class="td-trad">
+                <span class="badge-icon-cross">✕</span>
+                Cheques de caja y trámites bancarios lentos
+              </td>
+            </tr>
+            <tr>
+              <td class="td-dim">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="m19 11-8-8-8.6 8.6a2 2 0 0 0 0 2.8l5.2 5.2c.8.8 2 .8 2.8 0L19 11Z"/></svg>
+                Bonificación por Conducción
+              </td>
+              <td class="td-bankaool">
+                <span class="badge-icon-check">✓</span>
+                Hasta 0% Deducible por manejo responsable
+              </td>
+              <td class="td-trad">
+                <span class="badge-icon-cross">✕</span>
+                Deducible rígido del 5% al 10% obligatorio
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Métricas Clave y Testimonios -->
+  <section class="proof-section" id="testimonios">
+    <div class="container">
+      <div class="proof-metrics-grid">
+        <div class="proof-metric-card">
+          <div class="pm-tag">EFICIENCIA ALGORÍTMICA</div>
+          <div class="pm-val orange">99.4%</div>
+          <div class="pm-title">Siniestros Aprobados por IA</div>
+          <div class="pm-desc">Sin sesgo humano ni trabas burocráticas en reclamaciones legítimas.</div>
+        </div>
+
+        <div class="proof-metric-card">
+          <div class="pm-tag">LIQUIDEZ DISPERSADA</div>
+          <div class="pm-val blue">$120M+</div>
+          <div class="pm-title">MXN Pagados en Tiempo Récord</div>
+          <div class="pm-desc">Transferencias inmediatas vía conexión directa SPEI con Banco de México.</div>
+        </div>
+
+        <div class="proof-metric-card">
+          <div class="pm-tag">SATISFACCIÓN USUARIA</div>
+          <div class="pm-val dark">
+            <span>4.9</span>
+            <span class="stars">★★★★★</span>
+          </div>
+          <div class="pm-title">App Store & Play Store</div>
+          <div class="pm-desc">Más de 38,000 reseñas verificadas de conductores y familias en México.</div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="testimonials-grid">
+        <div class="test-card">
+          <div>
+            <div class="test-header">
+              <span class="test-stars">★★★★★</span>
+              <span class="test-location">CDMX • Polanco</span>
+            </div>
+            <p class="test-quote">
+              “Tuve un percance sobre Periférico Sur a las 11 PM. El sensor del coche detectó el impacto, abrí la app Bankaool y en 7 minutos el ajustador ya estaba conmigo. La transferencia del deducible cayó en 8 minutos.”
+            </p>
+          </div>
+          <div class="test-author">
+            <div class="author-avatar orange">RC</div>
+            <div>
+              <div class="author-name">Rodrigo Cantú</div>
+              <div class="author-policy">Póliza Auto Inteligente OBD-II</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-card">
+          <div>
+            <div class="test-header">
+              <span class="test-stars">★★★★★</span>
+              <span class="test-location">Monterrey • San Pedro</span>
+            </div>
+            <p class="test-quote">
+              “La combinación de seguro de vida con rendimientos diarios en Bankaool es insuperable. Mi dinero no solo está cubriendo a mi familia sino que genera casi 15% anual en mi bóveda bancaria. Adiós a las aseguradoras viejas.”
+            </p>
+          </div>
+          <div class="test-author">
+            <div class="author-avatar">MG</div>
+            <div>
+              <div class="author-name">Mariana Garza L.</div>
+              <div class="author-policy">Póliza Vida & Bóveda Rendimiento</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-card">
+          <div>
+            <div class="test-header">
+              <span class="test-stars">★★★★★</span>
+              <span class="test-location">Guadalajara • Zapopan</span>
+            </div>
+            <p class="test-quote">
+              “Mi hija requirió atención médica de emergencia en domingo. Hicimos la videoconsulta en 40 segundos, autorizaron el ingreso hospitalario de inmediato sin papeleos ni deducibles sorpresa. Es el futuro real de los seguros.”
+            </p>
+          </div>
+          <div class="test-author">
+            <div class="author-avatar orange">ET</div>
+            <div>
+              <div class="author-name">Esteban Tello M.</div>
+              <div class="author-policy">Póliza Salud Digital Familiar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner Section -->
+  <section class="cta-banner-section" id="contacto">
+    <div class="container">
+      <div class="cta-banner-card">
+        <div>
+          <div class="cta-pill">
+            <span class="status-dot"></span> MIGRACIÓN DIGITAL INMEDIATA
+          </div>
+          <h2 class="cta-title">
+            Tu seguridad no puede esperar al pasado. <br>
+            <span class="orange">Transfiere tu póliza a Bankaool Seguros hoy.</span>
+          </h2>
+          <p class="cta-desc">
+            Ingresa tu celular a 10 dígitos. Recibirás tu análisis de póliza actual, comparativa de ahorro y enlace directo para activar tu cobertura telemétrica en 60 segundos.
+          </p>
+
+          <div class="cta-trust-items">
+            <span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Cifrado bancario SHA-256
+            </span>
+            <span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Cero spam comercial
+            </span>
+            <span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--kinetic-cyan)" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Respuesta en menos de 30s
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <div class="lead-box">
+            <label class="lead-label">INGRESA TU CELULAR (10 DÍGITOS MX):</label>
+            <div class="phone-input-row">
+              <span class="phone-prefix">+52</span>
+              <input type="tel" class="phone-field" placeholder="55 1234 5678" maxlength="10">
+            </div>
+            <button class="btn-wa-submit" onclick="alert('Enviando cotización personalizada a tu WhatsApp...')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Recibir Cotización por WhatsApp
+            </button>
+            <div class="call-instead">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              ¿Prefieres llamada? Asistencia 800-BANKAOOL
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-text">banka<span style="color:var(--primary-orange);">ool</span> <span class="logo-badge">SEGUROS</span></div>
+          <p class="footer-sub">
+            Institución de Banca Múltiple y seguros tecnológicos autorizada por la Comisión Nacional Bancaria y de Valores (CNBV), CNSF y Banco de México. Cobertura nacional inteligente con dispersión inmediata SPEI.
+          </p>
+          <div class="footer-reg-chips">
+            <span class="reg-chip">CNSF: REG-F0892-AUT</span>
+            <span class="reg-chip">CONDUSEF: 99120</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>PÓLIZAS DIGITALES</h4>
+          <ul class="footer-links">
+            <li><a href="#cotizador">Auto Conectado Telemetría</a></li>
+            <li><a href="#cotizador">Salud & Gastos Médicos</a></li>
+            <li><a href="#cotizador">Hogar IoT & PyME</a></li>
+            <li><a href="#cotizador">Vida & Fondo de Ahorro</a></li>
+            <li><a href="#cotizador">Ciberseguridad Bancaria</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>BANKAOOL INSTITUCIONAL</h4>
+          <ul class="footer-links">
+            <li><a href="#personas">Personas</a></li>
+            <li><a href="#empresas">Empresas</a></li>
+            <li><a href="#nosotros">Sobre nosotros</a></li>
+            <li><a href="#inversionistas">Inversionistas</a></li>
+            <li><a href="#app">App Móvil Bankaool</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>SEGURIDAD & LEGAL</h4>
+          <ul class="footer-links">
+            <li><a href="#privacidad">Aviso de Privacidad</a></li>
+            <li><a href="#marco-legal">Marco Legal CNSF</a></li>
+            <li><a href="#terminos">Términos y Condiciones</a></li>
+            <li><a href="#biometria">Seguridad Biométrica</a></li>
+            <li><a href="#une">Centro de Ayuda / UNE</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2025 Bankaool, S.A., Institución de Banca Múltiple. Todos los derechos reservados.
+        </div>
+        <div class="node-status">
+          <span>CDMX • Chihuahua • Monterrey • Guadalajara</span>
+          <span style="display:flex; align-items:center; gap:6px;">
+            <span class="node-dot"></span> NODO SEGURO ACTIVO
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // State management for interactive simulator
+    const baseRates = {
+      auto: { base: 420, mult: 0.0006 },
+      salud: { base: 680, mult: 0.00045 },
+      vida: { base: 390, mult: 0.0003 },
+      hogar: { base: 490, mult: 0.00025 }
+    };
+
+    let currentPolicyType = 'auto';
+
+    function selectPolicyType(elem, type, defaultSum, basePrice) {
+      document.querySelectorAll('.type-card').forEach(c => c.classList.remove('active'));
+      elem.classList.add('active');
+      currentPolicyType = type;
+      
+      const rangeSuma = document.getElementById('range-suma');
+      rangeSuma.value = defaultSum;
+      updateCalculator();
+    }
+
+    function updateCalculator() {
+      const sum = parseInt(document.getElementById('range-suma').value);
+      const deducible = parseInt(document.getElementById('range-deducible').value);
+      const hasDiscount = document.getElementById('bankaool-discount').checked;
+
+      // Update sum display
+      document.getElementById('sum-display').innerText = '$' + sum.toLocaleString('es-MX') + ' MXN';
+
+      // Update deducible display
+      const dedLabel = document.getElementById('deducible-display');
+      if (deducible === 0) {
+        dedLabel.innerText = '0% (Cero Deducible VIP)';
+      } else {
+        dedLabel.innerText = deducible + '% (Con Sensor Activo)';
+      }
+
+      // Calculation logic
+      const rateConfig = baseRates[currentPolicyType] || baseRates.auto;
+      let calculatedPrice = rateConfig.base + (sum * rateConfig.mult);
+
+      // Deducible discount effect
+      calculatedPrice = calculatedPrice * (1 - (deducible * 0.035));
+
+      let cashback = 0;
+      if (hasDiscount) {
+        cashback = Math.round(calculatedPrice * 0.15);
+        calculatedPrice = calculatedPrice - cashback;
+      }
+
+      const finalPrice = Math.max(180, Math.round(calculatedPrice));
+      
+      document.getElementById('monthly-price').innerText = '$' + finalPrice.toLocaleString('es-MX');
+      
+      const cashbackLabel = document.getElementById('cashback-label');
+      if (hasDiscount) {
+        cashbackLabel.style.display = 'inline-block';
+        cashbackLabel.innerText = 'Incluye -$' + cashback.toLocaleString('es-MX') + ' MXN de Cashback Bankaool';
+      } else {
+        cashbackLabel.style.display = 'none';
+      }
+    }
+
+    function switchRadarTab(button, assetName, sensorLabel, timeVal, dedVal) {
+      document.querySelectorAll('.radar-tab-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      document.getElementById('radar-asset-name').innerText = assetName;
+      document.getElementById('radar-sensor-label').innerText = sensorLabel;
+      
+      const timeElem = document.getElementById('radar-val-time');
+      timeElem.querySelector('span').innerText = timeVal;
+
+      const dedElem = document.getElementById('radar-val-ded');
+      dedElem.querySelector('span').innerText = dedVal + ' Deducible';
+    }
+
+    // Initialize calculator
+    updateCalculator();
+
+    // Quiniela Mundialista Modal & Registration Logic
+    function openQuinielaModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById('quiniela-modal-overlay').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeQuinielaModal() {
+      document.getElementById('quiniela-modal-overlay').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function formatCardNumber(input) {
+      let v = input.value.replace(/\D/g, '').slice(0, 16);
+      input.value = v.replace(/(\d{4})(?=\d)/g, '$1 ');
+      updateCardPreview();
+    }
+
+    function formatExp(input) {
+      let v = input.value.replace(/\D/g, '').slice(0, 4);
+      if (v.length >= 2) {
+        input.value = v.slice(0, 2) + '/' + v.slice(2);
+      } else {
+        input.value = v;
+      }
+      updateCardPreview();
+    }
+
+    function updateCardPreview() {
+      const num = document.getElementById('card-number').value;
+      const holder = document.getElementById('card-holder').value;
+      const exp = document.getElementById('card-exp').value;
+      
+      document.getElementById('preview-number').innerText = num || '•••• •••• •••• ••••';
+      document.getElementById('preview-holder').innerText = (holder || 'TITULAR DE LA TARJETA').toUpperCase();
+      document.getElementById('preview-exp').innerText = exp || 'MM/AA';
+    }
+
+    function handleCardSubmit(e) {
+      e.preventDefault();
+      const num = document.getElementById('card-number').value.replace(/\s/g, '');
+      const holder = document.getElementById('card-holder').value;
+      const exp = document.getElementById('card-exp').value;
+      const cvv = document.getElementById('card-cvv').value;
+
+      if (num.length < 16) {
+        alert('Por favor ingresa un número de tarjeta válido de 16 dígitos.');
+        return;
+      }
+
+      // Show success screen
+      const last4 = num.slice(-4);
+      document.getElementById('success-last4').innerText = '•••• ' + last4;
+      document.getElementById('success-holder').innerText = holder.toUpperCase() || 'CLIENTE BANKAOOL';
+      
+      document.getElementById('quiniela-form-view').style.display = 'none';
+      document.getElementById('quiniela-success-view').style.display = 'block';
+    }
+  </script>
+
+  <!-- Quiniela Mundialista Modal -->
+  <div id="quiniela-modal-overlay" style="display:none; position:fixed; inset:0; width:100%; height:100%; background:rgba(7, 11, 20, 0.85); backdrop-filter:blur(14px); z-index:9999; justify-content:center; align-items:center; padding:16px; box-sizing:border-box;">
+    <div id="quiniela-modal-container" style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:20px; width:100%; max-width:350px; box-shadow:0 25px 60px rgba(0,0,0,0.4); position:relative; overflow:hidden; max-height:90vh; display:flex; flex-direction:column; box-sizing:border-box; margin:0 auto;">
+      
+      <!-- Modal Header -->
+      <div style="background:#070B14; color:#FFFFFF; padding:16px 20px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.1); flex-shrink:0;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="background:var(--primary-orange); color:#FFFFFF; width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px;">⚽</div>
+          <div>
+            <div style="font-family:var(--font-display); font-size:16px; font-weight:800; line-height:1.2;">Quiniela Mundialista</div>
+            <div style="font-family:var(--font-mono); font-size:10.5px; color:#94A3B8;">Bankaool Fan Hub 2026</div>
+          </div>
+        </div>
+        <button onclick="closeQuinielaModal()" style="background:rgba(255,255,255,0.1); border:none; color:#FFFFFF; width:28px; height:28px; border-radius:50%; cursor:pointer; font-size:15px; display:flex; align-items:center; justify-content:center;">✕</button>
+      </div>
+
+      <!-- Modal Body Scrollable -->
+      <div style="padding:18px 20px; overflow-y:auto; flex:1; box-sizing:border-box;">
+
+        <!-- Form View -->
+        <div id="quiniela-form-view">
+          <div style="background:var(--primary-orange-light); border:1px solid rgba(255,71,19,0.25); border-radius:12px; padding:12px 14px; margin-bottom:18px; font-size:12px; color:#C23308; line-height:1.4; display:flex; gap:10px; align-items:center;">
+            <span style="font-size:18px;">🏆</span>
+            <div><strong>¡Participa gratis con tu tarjeta de débito Bankaool!</strong> Pronostica partidos del Mundial y gana hasta $1,000,000 MXN en tu Bóveda.</div>
+          </div>
+
+          <!-- Virtual Debit Card Preview -->
+          <div style="background:linear-gradient(135deg, #070B14 0%, #17243B 100%); border-radius:14px; padding:18px; color:#FFFFFF; box-shadow:0 8px 24px rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.15); margin-bottom:20px; position:relative; overflow:hidden;">
+            <div style="position:absolute; right:-20px; top:-20px; width:120px; height:120px; background:radial-gradient(circle, rgba(255,71,19,0.2) 0%, transparent 70%);"></div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+              <span style="font-family:var(--font-display); font-size:17px; font-weight:800; letter-spacing:-0.03em;">banka<span style="color:var(--primary-orange);">ool</span></span>
+              <span style="font-family:var(--font-mono); font-size:10px; background:rgba(0,230,118,0.15); color:var(--cyber-emerald); border:1px solid rgba(0,230,118,0.3); padding:2px 7px; border-radius:9999px; font-weight:700;">DÉBITO VISA</span>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:17px; font-weight:700; letter-spacing:2px; margin-bottom:16px; text-shadow:0 2px 4px rgba(0,0,0,0.5);" id="preview-number">•••• •••• •••• ••••</div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+              <div>
+                <div style="font-family:var(--font-mono); font-size:9px; color:#94A3B8; text-transform:uppercase;">Titular</div>
+                <div style="font-size:11.5px; font-weight:700; letter-spacing:0.04em;" id="preview-holder">TITULAR DE LA TARJETA</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono); font-size:9px; color:#94A3B8; text-transform:uppercase;">Vence</div>
+                <div style="font-family:var(--font-mono); font-size:11.5px; font-weight:700;" id="preview-exp">MM/AA</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Form -->
+          <form id="card-registration-form" onsubmit="handleCardSubmit(event)">
+            <div style="margin-bottom:12px;">
+              <label style="display:block; font-family:var(--font-mono); font-size:10.5px; font-weight:700; color:#475569; margin-bottom:5px; text-transform:uppercase;">Número de Tarjeta de Débito</label>
+              <input type="text" id="card-number" placeholder="4152 3140 8820 9182" maxlength="19" required oninput="formatCardNumber(this)" style="width:100%; box-sizing:border-box; padding:11px 13px; border:1.5px solid #CBD5E1; border-radius:10px; font-family:var(--font-mono); font-size:14.5px; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--primary-orange)'" onblur="this.style.borderColor='#CBD5E1'">
+            </div>
+
+            <div style="margin-bottom:12px;">
+              <label style="display:block; font-family:var(--font-mono); font-size:10.5px; font-weight:700; color:#475569; margin-bottom:5px; text-transform:uppercase;">Nombre del Titular</label>
+              <input type="text" id="card-holder" placeholder="Juan Carlos Pérez" required oninput="updateCardPreview()" style="width:100%; box-sizing:border-box; padding:11px 13px; border:1.5px solid #CBD5E1; border-radius:10px; font-size:13.5px; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--primary-orange)'" onblur="this.style.borderColor='#CBD5E1'">
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px;">
+              <div>
+                <label style="display:block; font-family:var(--font-mono); font-size:10.5px; font-weight:700; color:#475569; margin-bottom:5px; text-transform:uppercase;">Vigencia (MM/AA)</label>
+                <input type="text" id="card-exp" placeholder="08/29" maxlength="5" required oninput="formatExp(this)" style="width:100%; box-sizing:border-box; padding:11px 13px; border:1.5px solid #CBD5E1; border-radius:10px; font-family:var(--font-mono); font-size:13.5px; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--primary-orange)'" onblur="this.style.borderColor='#CBD5E1'">
+              </div>
+              <div>
+                <label style="display:block; font-family:var(--font-mono); font-size:10.5px; font-weight:700; color:#475569; margin-bottom:5px; text-transform:uppercase;">CVV</label>
+                <input type="password" id="card-cvv" placeholder="•••" maxlength="4" required style="width:100%; box-sizing:border-box; padding:11px 13px; border:1.5px solid #CBD5E1; border-radius:10px; font-family:var(--font-mono); font-size:13.5px; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--primary-orange)'" onblur="this.style.borderColor='#CBD5E1'">
+              </div>
+            </div>
+
+            <button type="submit" id="btn-confirmar-registro" class="btn-primary-orange" style="width:100%; padding:14px; font-size:14.5px; justify-content:center; box-shadow:0 6px 20px rgba(255,71,19,0.35);">
+              Confirmar Registro en la Quiniela
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <div style="text-align:center; font-size:10.5px; color:#94A3B8; margin-top:10px;">Cero cargos a tu tarjeta • Verificación con token de seguridad SPEI</div>
+          </form>
+        </div>
+
+        <!-- Success Screen View -->
+        <div id="quiniela-success-view" style="display:none; text-align:center; padding:10px 0 10px;">
+          <!-- Success Badge Icon -->
+          <div style="width:64px; height:64px; background:rgba(0,230,118,0.12); border:2px solid var(--cyber-emerald); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; color:var(--cyber-emerald); font-size:28px; box-shadow:0 0 20px rgba(0,230,118,0.2);">
+            ✓
+          </div>
+
+          <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(0,230,118,0.1); border:1px solid rgba(0,230,118,0.3); color:#008744; font-family:var(--font-mono); font-size:11px; font-weight:700; padding:3px 10px; border-radius:9999px; margin-bottom:12px;">
+            <span class="status-dot"></span> REGISTRO EXITOSO 2026
+          </div>
+
+          <h3 style="font-family:var(--font-display); font-size:21px; font-weight:800; color:#0B132B; margin-bottom:8px; line-height:1.25; word-wrap:break-word; overflow-wrap:break-word;">
+            ¡Tarjeta de Débito Registrada!
+          </h3>
+
+          <p style="font-size:13.5px; color:#475569; line-height:1.5; margin-bottom:18px; word-wrap:break-word; overflow-wrap:break-word;">
+            Tu tarjeta <strong id="success-last4" style="font-family:var(--font-mono); color:#0B132B;">•••• 9182</strong> ha sido vinculada exitosamente a la <strong>Quiniela Mundialista Bankaool</strong>.
+          </p>
+
+          <!-- Ticket Summary Card (Fully responsive with break-words) -->
+          <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:14px; padding:14px 16px; text-align:left; margin-bottom:20px; font-size:12.5px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #EEF2F6; padding-bottom:6px; gap:8px;">
+              <span style="color:#64748B; flex-shrink:0;">Titular:</span>
+              <span id="success-holder" style="font-weight:700; color:#0B132B; word-break:break-word; text-align:right;">JUAN CARLOS PÉREZ</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #EEF2F6; padding-bottom:6px; gap:8px;">
+              <span style="color:#64748B; flex-shrink:0;">ID Pronóstico:</span>
+              <span style="font-family:var(--font-mono); font-weight:700; color:var(--primary-orange);">QNL-BK26-7849</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #EEF2F6; padding-bottom:6px; gap:8px;">
+              <span style="color:#64748B; flex-shrink:0;">Bono de Entrada:</span>
+              <span style="font-family:var(--font-mono); font-weight:700; color:#008744;">$500 MXN en Bóveda</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; gap:8px;">
+              <span style="color:#64748B; flex-shrink:0;">Estado:</span>
+              <span style="font-weight:700; color:var(--cyber-emerald); display:flex; align-items:center; gap:5px; text-align:right;">
+                <span class="status-dot"></span> Habilitado para Premios
+              </span>
+            </div>
+          </div>
+
+          <button onclick="closeQuinielaModal()" class="btn-primary-orange" style="width:100%; padding:13px; font-size:14px; justify-content:center;">
+            Ir al Tablero de Partidos
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('simulate_quiniela') === '1') {
+      openQuinielaModal();
+      document.getElementById('card-number').value = '4152 3140 8820 9182';
+      document.getElementById('card-holder').value = 'Juan Carlos Pérez';
+      document.getElementById('card-exp').value = '08/29';
+      document.getElementById('card-cvv').value = '739';
+      updateCardPreview();
+      setTimeout(() => {
+        document.getElementById('btn-confirmar-registro').click();
+      }, 300);
+    }
+  });
+</script>
+</body>
+</html>
